@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns="http://maven.apache.org/XDOC/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
+
+    <head>
+        <title>Baxter JMS Connector Versions</title>
+    </head>
+
+    <body>
+
+        <section name="Connector Versions">
+
+            <p>Following table displays the versions provided by connectors:</p>
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>JMS Connector</th>
+                        <th>SwiftMQ</th>
+                        <th>TIBCO JMS</th>
+                        <th>HornetQ</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>1.0</td>
+                        <td>7.5.4</td>
+                        <td>6.0.0</td>
+                        <td>-</td>
+                    </tr>
+
+                    <tr>
+                        <td>0.1</td>
+                        <td>2.1.3</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+    </body>
+
+</document>

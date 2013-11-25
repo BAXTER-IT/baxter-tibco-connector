@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
 
@@ -22,8 +23,8 @@
         <connection>scm:git:ssh://git@git.cloudbees.com/baxter/baxter-jms-connector.git</connection>
         <developerConnection>scm:git:ssh://git@git.cloudbees.com/baxter/baxter-jms-connector.git</developerConnection>
         <url>ssh://git@git.cloudbees.com/baxter/baxter-jms-connector.git</url>
-      <tag>HEAD</tag>
-  </scm>
+        <tag>HEAD</tag>
+    </scm>
 
     <build>
 
@@ -40,16 +41,6 @@
                                 <addClasspath>true</addClasspath>
                             </manifest>
                         </archive>
-                    </configuration>
-                </plugin>
-
-                <plugin>
-                    <groupId>no.arktekk.unix</groupId>
-                    <artifactId>unix-maven-plugin</artifactId>
-                    <configuration>
-                        <deb combine.children="append">
-                            <provides>${unix.package},${connector-type}</provides>
-                        </deb>
                     </configuration>
                 </plugin>
 
@@ -82,6 +73,125 @@
             </distributionManagement>
         </profile>
 
+        <profile>
+            <id>DEB</id>
+            <activation>
+                <os>
+                    <family>unix</family>
+                </os>
+            </activation>
+            <build>
+                <pluginManagement>
+                    <plugins>
+                        <plugin>
+                            <groupId>no.arktekk.unix</groupId>
+                            <artifactId>unix-maven-plugin</artifactId>
+                            <configuration>
+                                <deb combine.children="append">
+                                    <provides>${unix.package},${connector-type}</provides>
+                                </deb>
+                                <assembly combine.children="append">
+                                    <copyArtifact>
+                                        <artifact>javax.jms:jms-api</artifact>
+                                        <toDir>${unix.application.lib.dir}</toDir>
+                                    </copyArtifact>
+                                    <copyFile>
+                                        <path>${project.build.directory}/${project.build.finalName}.jar</path>
+                                        <toDir>${unix.application.lib.dir}</toDir>
+                                    </copyFile>
+                                    <symlink>
+                                        <path>${unix.application.lib.dir}/baxter-jms-connector.jar</path>
+                                        <value>${unix.application.lib.dir}/${project.build.finalName}.jar</value>
+                                    </symlink>
+                                </assembly>
+                            </configuration>
+                        </plugin>
+                    </plugins>
+                </pluginManagement>
+            </build>
+        </profile>
+
+        <profile>
+            <id>RPM</id>
+            <activation>
+                <os>
+                    <family>unix</family>
+                </os>
+            </activation>
+            <build>
+                <pluginManagement>
+                    <plugins>
+                        <plugin>
+                            <groupId>org.codehaus.mojo</groupId>
+                            <artifactId>rpm-maven-plugin</artifactId>
+                            <configuration>
+                                <provides combine.children="append">
+                                    <provide>${connector-type}</provide>
+                                </provides>
+                            </configuration>
+                            <executions>
+                                <execution>
+                                    <id>build-std-rpm-installer</id>
+                                    <configuration>
+                                        <mappings combine.children="append">
+                                            <mapping>
+                                                <directory>${unix.application.lib.dir}</directory>
+                                            </mapping>
+                                            <mapping>
+                                                <directory>${unix.application.lib.dir}</directory>
+                                                <artifact>
+                                                    <classifiers>
+                                                        <classifier />
+                                                    </classifiers>
+                                                </artifact>
+                                                <dependency>
+                                                </dependency>
+                                                <sources>
+                                                    <softlinkSource>
+                                                        <location>${unix.application.lib.dir}/${project.build.finalName}.jar</location>
+                                                        <destination>${connector-jar}</destination>
+                                                    </softlinkSource>
+                                                </sources>
+                                            </mapping>
+                                        </mappings>
+                                    </configuration>
+                                </execution>
+                                <execution>
+                                    <id>build-alt-rpm-installer</id>
+                                    <configuration>
+                                        <mappings combine.children="append">
+                                            <mapping>
+                                                <directory>${unix.application.alt.root}</directory>
+                                            </mapping>
+                                            <mapping>
+                                                <directory>${unix.application.alt.lib.dir}</directory>
+                                            </mapping>
+                                            <mapping>
+                                                <directory>${unix.application.alt.lib.dir}</directory>
+                                                <artifact>
+                                                    <classifiers>
+                                                        <classifier />
+                                                    </classifiers>
+                                                </artifact>
+                                                <dependency>
+                                                </dependency>
+                                                <sources>
+                                                    <softlinkSource>
+                                                        <location>${unix.application.alt.lib.dir}/${project.build.finalName}.jar</location>
+                                                        <destination>${connector-jar}</destination>
+                                                    </softlinkSource>
+                                                </sources>
+                                            </mapping>
+                                        </mappings>
+                                    </configuration>
+                                </execution>
+                            </executions>
+                        </plugin>
+                    </plugins>
+                </pluginManagement>
+            </build>
+        </profile>
+
     </profiles>
 
     <dependencyManagement>
@@ -109,11 +219,12 @@
 
     <modules>
         <module>connector-swiftmq</module>
+        <module>connector-tibco</module>
     </modules>
 
     <properties>
-        <jms-adapter.jar>baxter-jms-connector.jar</jms-adapter.jar>
         <connector-type>${project.artifactId}</connector-type>
+        <connector-jar>baxter-jms-connector.jar</connector-jar>
         <unix.package>baxter-jms-connector</unix.package>
         <unix.application.group.name>Java</unix.application.group.name>
     </properties>

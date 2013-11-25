@@ -9,17 +9,17 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>baxter-swiftmq-connector</artifactId>
-    <name>Baxter SwiftMQ Connector</name>
+    <artifactId>baxter-tibco-connector</artifactId>
+    <name>Baxter TIBCO JMS Connector</name>
 
     <dependencyManagement>
 
         <dependencies>
 
             <dependency>
-                <groupId>com.swiftmq</groupId>
-                <artifactId>swiftmq-client</artifactId>
-                <version>7.5.4</version>
+                <groupId>com.tibco</groupId>
+                <artifactId>tibjms</artifactId>
+                <version>6.0.0</version>
             </dependency>
 
         </dependencies>
@@ -29,8 +29,8 @@
     <dependencies>
 
         <dependency>
-            <groupId>com.swiftmq</groupId>
-            <artifactId>swiftmq-client</artifactId>
+            <groupId>com.tibco</groupId>
+            <artifactId>tibjms</artifactId>
             <scope>runtime</scope>
         </dependency>
 
@@ -58,7 +58,7 @@
                                 <configuration>
                                     <assembly combine.children="append">
                                         <copyArtifact>
-                                            <artifact>com.swiftmq:swiftmq-client</artifact>
+                                            <artifact>com.tibco:tibjms</artifact>
                                             <toDir>${unix.application.lib.dir}</toDir>
                                         </copyArtifact>
                                     </assembly>

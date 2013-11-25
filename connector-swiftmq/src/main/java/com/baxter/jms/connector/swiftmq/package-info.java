@@ -4,4 +4,4 @@
  * @author yura
  *
  */
-package com.baxter.jms;
+package com.baxter.jms.connector.swiftmq;
