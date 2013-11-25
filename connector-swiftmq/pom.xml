@@ -12,20 +12,6 @@
     <artifactId>baxter-swiftmq-connector</artifactId>
     <name>Baxter SwiftMQ Connector</name>
 
-    <dependencyManagement>
-
-        <dependencies>
-
-            <dependency>
-                <groupId>com.swiftmq</groupId>
-                <artifactId>swiftmq-client</artifactId>
-                <version>7.5.4</version>
-            </dependency>
-
-        </dependencies>
-
-    </dependencyManagement>
-
     <dependencies>
 
         <dependency>
@@ -37,6 +23,22 @@
     </dependencies>
 
     <profiles>
+
+        <profile>
+            <id>TARGZ</id>
+            <activation>
+                <property>
+                    <name>!skipTarGz</name>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-assembly-plugin</artifactId>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
 
         <profile>
             <id>DEB</id>

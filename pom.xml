@@ -74,6 +74,38 @@
         </profile>
 
         <profile>
+            <id>TARGZ</id>
+            <activation>
+                <property>
+                    <name>!skipTarGz</name>
+                </property>
+            </activation>
+            <build>
+                <pluginManagement>
+                    <plugins>
+                        <plugin>
+                            <artifactId>maven-assembly-plugin</artifactId>
+                            <executions>
+                                <execution>
+                                    <id>build-standalone</id>
+                                    <phase>package</phase>
+                                    <goals>
+                                        <goal>single</goal>
+                                    </goals>
+                                    <configuration>
+                                        <descriptors>
+                                            <descriptor>src/main/assembly/standalone.xml</descriptor>
+                                        </descriptors>
+                                    </configuration>
+                                </execution>
+                            </executions>
+                        </plugin>
+                    </plugins>
+                </pluginManagement>
+            </build>
+        </profile>
+
+        <profile>
             <id>DEB</id>
             <activation>
                 <os>
@@ -202,6 +234,18 @@
                 <groupId>javax.jms</groupId>
                 <artifactId>jms-api</artifactId>
                 <version>1.1-rev-1</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.swiftmq</groupId>
+                <artifactId>swiftmq-client</artifactId>
+                <version>7.5.4</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.tibco</groupId>
+                <artifactId>tibjms</artifactId>
+                <version>6.3.0</version>
             </dependency>
 
         </dependencies>
