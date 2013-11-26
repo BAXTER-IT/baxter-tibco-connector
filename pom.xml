@@ -238,13 +238,13 @@
             <dependency>
                 <groupId>com.swiftmq</groupId>
                 <artifactId>swiftmq-client</artifactId>
-                <version>7.5.4</version>
+                <version>9.2.5</version>
             </dependency>
 
             <dependency>
                 <groupId>com.tibco</groupId>
                 <artifactId>tibjms</artifactId>
-                <version>6.0.0</version>
+                <version>6.3.0</version>
             </dependency>
 
         </dependencies>

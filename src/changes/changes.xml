@@ -4,6 +4,12 @@
 
     <body>
 
+        <release version="1.0.2" date="2013-11-26" description="JMS Connector versions">
+            <action type="add" issue="PE-3856" dev="ykryshchuk" system="JIRA">
+            More versions for JMS Connectors.
+            </action>
+        </release>
+        
         <release version="1.0.1" date="2013-11-26" description="JMS Connector versions">
             <action type="add" issue="PE-3856" dev="ykryshchuk" system="JIRA">
             More versions for JMS Connectors.
