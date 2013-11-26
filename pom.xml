@@ -131,7 +131,7 @@
                                         <toDir>${unix.application.lib.dir}</toDir>
                                     </copyFile>
                                     <symlink>
-                                        <path>${unix.application.lib.dir}/baxter-jms-connector.jar</path>
+                                        <path>${unix.application.lib.dir}/${connector-jar}</path>
                                         <value>${unix.application.lib.dir}/${project.build.finalName}.jar</value>
                                     </symlink>
                                 </assembly>
