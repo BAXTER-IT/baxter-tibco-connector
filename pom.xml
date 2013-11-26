@@ -122,10 +122,6 @@
                                     <provides>${unix.package},${connector-type}</provides>
                                 </deb>
                                 <assembly combine.children="append">
-                                    <copyArtifact>
-                                        <artifact>javax.jms:jms-api</artifact>
-                                        <toDir>${unix.application.lib.dir}</toDir>
-                                    </copyArtifact>
                                     <copyFile>
                                         <path>${project.build.directory}/${project.build.finalName}.jar</path>
                                         <toDir>${unix.application.lib.dir}</toDir>
@@ -225,44 +221,10 @@
 
     </profiles>
 
-    <dependencyManagement>
-
-        <dependencies>
-
-            <dependency>
-                <groupId>javax.jms</groupId>
-                <artifactId>jms-api</artifactId>
-                <version>1.1-rev-1</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.swiftmq</groupId>
-                <artifactId>swiftmq-client</artifactId>
-                <version>9.2.5</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.tibco</groupId>
-                <artifactId>tibjms</artifactId>
-                <version>6.3.0</version>
-            </dependency>
-
-        </dependencies>
-
-    </dependencyManagement>
-
-    <dependencies>
-
-        <dependency>
-            <groupId>javax.jms</groupId>
-            <artifactId>jms-api</artifactId>
-        </dependency>
-
-    </dependencies>
-
     <modules>
         <module>connector-swiftmq</module>
         <module>connector-tibco</module>
+        <module>bom</module>
     </modules>
 
     <properties>
