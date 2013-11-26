@@ -4,7 +4,13 @@
 
     <body>
 
-        <release version="1.0" date="2013-11-25" description="Advanced JMS Connectors">
+        <release version="1.0.1" date="2013-11-26" description="JMS Connector versions">
+            <action type="add" issue="PE-3856" dev="ykryshchuk" system="JIRA">
+            More versions for JMS Connectors.
+            </action>
+        </release>
+        
+        <release version="1.0" date="2013-11-26" description="Advanced JMS Connectors">
             <action type="add" issue="PE-3856" dev="ykryshchuk" system="JIRA">
             Added RPM Packages for SwiftMQ and Tibco JMS connectors.
             </action>

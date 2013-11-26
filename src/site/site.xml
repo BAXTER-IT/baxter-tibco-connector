@@ -4,6 +4,10 @@
     xsi:schemaLocation="http://maven.apache.org/DECORATION/1.1.0 http://maven.apache.org/xsd/decoration-1.1.0.xsd"
     name="Baxter JMS Connector">
     
+    <bannerLeft>
+        <name>Baxter JMS Connector</name>
+    </bannerLeft>
+    
     <body>
         
         <menu name="Connector" inherit="top" inheritAsRef="true">
