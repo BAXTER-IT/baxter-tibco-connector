@@ -15,14 +15,19 @@
 
         <dependencies>
 
+
             <dependency>
-                <groupId>${project.groupId}</groupId>
-                <artifactId>baxter-jms-connector-bom</artifactId>
-                <type>pom</type>
-                <version>${project.version}</version>
-                <scope>import</scope>
+                <groupId>javax.jms</groupId>
+                <artifactId>jms-api</artifactId>
+                <version>1.1-rev-1</version>
             </dependency>
 
+            <dependency>
+                <groupId>com.tibco</groupId>
+                <artifactId>tibjms</artifactId>
+                <version>6.3.0</version>
+            </dependency>
+			
         </dependencies>
 
     </dependencyManagement>
