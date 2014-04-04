@@ -11,7 +11,7 @@
     <groupId>com.baxter.jms</groupId>
     <artifactId>baxter-tibco-connector</artifactId>
     <name>Baxter TIBCO JMS Connector</name>
-    <version>6.0.0</version>
+    <version>0.0.1-SNAPSHOT</version>
     
     <url>https://repository-baxter.forge.cloudbees.com/private/sites/tibco-connector/</url>
     
@@ -19,7 +19,7 @@
         <connection>scm:git:ssh://git@git.cloudbees.com/baxter/baxter-tibco-connector.git</connection>
         <developerConnection>scm:git:ssh://git@git.cloudbees.com/baxter/baxter-tibco-connector.git</developerConnection>
         <url>ssh://git@git.cloudbees.com/baxter/baxter-tibco-connector.git</url>
-        <tag>baxter-tibco-connector-6.0.0</tag>
+        <tag>HEAD</tag>
     </scm>
     
     <dependencyManagement>
