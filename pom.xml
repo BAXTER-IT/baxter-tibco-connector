@@ -5,7 +5,7 @@
     <parent>
         <groupId>com.baxter</groupId>
         <artifactId>baxter-connector</artifactId>
-        <version>1.0.2</version>
+        <version>1.0.3</version>
     </parent>
     
     <groupId>com.baxter.jms</groupId>
@@ -65,7 +65,7 @@
                 <site>
                     <id>cloudbees-private-repository</id>
                     <name>Baxter Projects Site</name>
-                    <url>dav:https://repository-baxter.forge.cloudbees.com/private/sites/connector/tibco/</url>
+                    <url>dav:https://repository-baxter.forge.cloudbees.com/private/sites/tibco-connector/</url>
                 </site>
             </distributionManagement>
         </profile>
