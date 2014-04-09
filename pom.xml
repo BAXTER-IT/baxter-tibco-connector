@@ -11,7 +11,7 @@
     <groupId>com.baxter.jms</groupId>
     <artifactId>baxter-tibco-connector</artifactId>
     <name>Baxter TIBCO JMS Connector</name>
-    <version>6.3.0-SNAPSHOT</version>
+    <version>6.3.0</version>
     
     <url>https://repository-baxter.forge.cloudbees.com/private/sites/tibco-connector/</url>
     
