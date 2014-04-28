@@ -16,10 +16,9 @@
     <url>https://repository-baxter.forge.cloudbees.com/private/sites/tibco-connector/</url>
     
     <scm>
-        <connection>scm:git:ssh://git@git.cloudbees.com/baxter/baxter-tibco-connector.git</connection>
-        <developerConnection>scm:git:ssh://git@git.cloudbees.com/baxter/baxter-tibco-connector.git</developerConnection>
-        <url>ssh://git@git.cloudbees.com/baxter/baxter-tibco-connector.git</url>
-        <tag>baxter-tibco-connector-6.3.0</tag>
+        <connection>scm:git:ssh://git@github.com:BAXTER-IT/baxter-tibco-connector.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com:BAXTER-IT/baxter-tibco-connector.git</developerConnection>
+        <url>ssh://git@github.com:BAXTER-IT/baxter-tibco-connector.git</url>
     </scm>
     
     <dependencyManagement>
