@@ -8,7 +8,7 @@
         <version>1.0.3</version>
     </parent>
     
-    <groupId>com.baxter.jms</groupId>
+    <groupId>com.baxter.connector.jms</groupId>
     <artifactId>baxter-tibco-connector</artifactId>
     <name>Baxter TIBCO JMS Connector</name>
     <version>0.0.1-SNAPSHOT</version>
