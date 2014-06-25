@@ -162,7 +162,7 @@
     
     <properties>
         <!-- Note thi artifact version should be in sync on release -->
-        <tibjms.version>6.0.0</tibjms.version>
+        <tibjms.version>${project.version}</tibjms.version>
         <!-- Samevalue for all JMS Connectors -->
         <connector-type>baxter-jms-connector</connector-type>
     </properties>
